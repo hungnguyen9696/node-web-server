@@ -2,6 +2,9 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const port = process.env.PORT || 3000;
+//process.env is a obj store all our envi variables as key vlue pairs
+
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials')
@@ -53,4 +56,6 @@ app.get('/bad', (req, res) => {
     
 });
 
-app.listen(3000);
+app.listen(port, () => {
+    console.log(`server is up on port ${port}`);
+});
